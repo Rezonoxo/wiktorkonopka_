@@ -29,7 +29,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-        - run: npm run check:config
+      - run: npm run check:config
       - run: npm run build:gallery
       - run: |
           mkdir _site
