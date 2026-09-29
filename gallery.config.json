@@ -1,0 +1,8 @@
+{
+  "layout": {
+    "desktopColumns": 3,
+    "tabletColumns": 2,
+    "mobileColumns": 1,
+    "gap": 12
+  }
+}

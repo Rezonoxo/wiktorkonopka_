@@ -1,0 +1,13 @@
+{
+  "name": "photography-portfolio-manager",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "manager": "python gallery_manager.py",
+    "check:config": "node scripts/check-config.js",
+    "build:gallery": "node scripts/build-gallery.js"
+  },
+  "dependencies": {
+    "sharp": "^0.34.3"
+  }
+}
