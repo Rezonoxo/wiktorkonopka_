@@ -37,7 +37,9 @@ def photo_list():
     images = []
     for item in PHOTOS.iterdir():
         if item.is_file() and item.suffix.lower() in ALLOWED:
-            stat = item.stat(); images.append({"name": item.name, "size": stat.st_size, "modified": datetime.fromtimestamp(stat.st_mtime, timezone.utc).isoformat(), "url": "/api/photo/" + item.name})
+            stat = item.stat(); key = base64.urlsafe_b64encode(item.name.encode()).decode().rstrip("=")
+            thumbnail = ROOT / "dist" / "gallery" / "thumbs" / f"{key}-480.webp"
+            images.append({"name": item.name, "size": stat.st_size, "modified": datetime.fromtimestamp(stat.st_mtime, timezone.utc).isoformat(), "url": "/api/photo/" + item.name, "thumbnail": f"/preview/dist/gallery/thumbs/{thumbnail.name}" if thumbnail.is_file() else "/api/photo/" + item.name})
     return sorted(images, key=lambda x: x["modified"], reverse=True)
 
 def build_gallery():

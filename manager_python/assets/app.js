@@ -18,7 +18,7 @@ function render(){
 		item.className='photo';
 		item.dataset.name=photo.name;
 		const image=document.createElement('img');
-		image.src=photo.url;
+		image.src=photo.thumbnail||photo.url;
 		image.alt='';
 		image.loading='lazy';
 		const title=document.createElement('p');
